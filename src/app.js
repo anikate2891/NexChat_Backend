@@ -7,7 +7,7 @@ import morgan from "morgan";
 
 const app = express();
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "https://nex-chat-frontend-phi.vercel.app"],
     credentials: true
 }));
 // Middleware
