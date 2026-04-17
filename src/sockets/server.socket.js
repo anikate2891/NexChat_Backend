@@ -4,7 +4,7 @@ let io;
 export const initSocketServer = (httpserver) => {
     io = new Server(httpserver, {
         cors: {
-            origin: 'http://localhost:5173',
+            origin: 'https://nex-chat-frontend-phi.vercel.app',
             credentials: true,
         },
     })
