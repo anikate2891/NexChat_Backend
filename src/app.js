@@ -7,7 +7,10 @@ import morgan from "morgan";
 
 const app = express();
 app.use(cors({
-    origin: ["https://nex-chat-frontend-phi.vercel.app"],
+    origin: [
+    "http://localhost:5173",
+    "https://nex-chat-frontend-phi.vercel.app"
+],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }));
