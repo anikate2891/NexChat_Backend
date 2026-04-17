@@ -112,8 +112,8 @@ export async function login(req, res) {
 
     res.cookie("token", token, {
     httpOnly: true,
-    secure: false,        // dev ke liye
-    sameSite: "lax"
+    secure: true,
+    sameSite: "none"
 })
 
     res.status(200).json({
