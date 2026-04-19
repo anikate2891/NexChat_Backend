@@ -182,6 +182,7 @@ export async function verifyEmail(req, res) {
 
         await user.save();
 
+    const FRONTEND_URL = process.env.FRONTEND_URL;
     const html = `
 <!DOCTYPE html>
 <html lang="en">
@@ -260,14 +261,12 @@ export async function verifyEmail(req, res) {
                 <div class="icon">✅</div>
                 <h1>Email Verified!</h1>
                 <p>Your email has been verified successfully.<br/>You can now log in to your account.</p>
-                <a href="http://localhost:5173/login">Go to Login</a>
+                <a href="${FRONTEND_URL}/login">Go to Login</a>
             </div>
         </body>
         </html>
-`
-return res.send(html);
-
-        return res.send(html);
+    `;
+    return res.send(html);
     } catch (err) {
         return res.status(400).json({
             message: "Invalid or expired token",
