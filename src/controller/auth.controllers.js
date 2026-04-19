@@ -30,7 +30,7 @@ export async function register(req, res) {
     const emailVerificationToken = jwt.sign({
         email: user.email,
     }, process.env.JWT_SECRET)
-
+    const BASE_URL = process.env.BASE_URL;
     await sendEmail({
         to: email,
         subject: "Welcome to NexChat!",
@@ -42,7 +42,7 @@ export async function register(req, res) {
     <p>Thanks for signing up. Please verify your email address by clicking the button below:</p>
 
     <p>
-        <a href="http://localhost:3000/api/auth/verify-email?token=${emailVerificationToken}">
+        <a href="${BASE_URL}/api/auth/verify-email?token=${emailVerificationToken}">
             ✅ Verify My Email
         </a>
     </p>
